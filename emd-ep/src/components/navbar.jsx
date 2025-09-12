@@ -1,9 +1,9 @@
 import { HashLink } from "react-router-hash-link";
-import Logo from "../assets/logo.svg";
+import Logo from "../../logo.png";
 
 function Navbar() {
   return (
-    <nav className="border-b-[6px] border-gray-300 p-4 bg-red-500" dir="rtl">
+    <nav className="border-b-[6px] border-gray-300 p-9 mb-28">
       <div className="grid grid-cols-[1fr_auto_1fr] items-center">
         <ul className="flex flex-row-reverse items-center justify-start gap-6">
           <li>
@@ -14,7 +14,7 @@ function Navbar() {
         </ul>
 
         <div className="flex justify-center w-16 md:w-32 lg:w-48">
-          <img src={Logo} alt="Logo" className="w-auto h-auto border-8 border-red-500" />
+          <img src={Logo} alt="Logo" className="w-auto h-auto" />
         </div>
 
         <ul className="flex flex-row-reverse items-center justify-end gap-6">
