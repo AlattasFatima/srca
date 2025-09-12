@@ -1,16 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
 import Navbar from "./components/navbar";
 import Home from "./components/home";
+import Articles from "./components/articles";
+import Videos from "./components/videos";
 
 function App() {
   return (
-    
     <BrowserRouter>
       <Navbar />
-      <div className="w-16 h-16 bg-red-500"></div>
-
-      <Home />
+      <main className="pt-[var(--nav-h,6rem)]">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/articles" element={<Articles />} />
+          <Route path="/videos" element={<Videos />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }
