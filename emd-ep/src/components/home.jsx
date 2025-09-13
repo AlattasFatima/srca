@@ -9,19 +9,17 @@ function Home() {
  bg-center flex items-center justify-center"
       style={{
         backgroundImage: `url(${bg})`,
-      }}
-    >
+      }}>
       <style>
-        {`
-          @media (max-width: 342px) {
+        {`@media (max-width: 342px) {
             #home {
               background-image: none !important;
             }
-          }
-        `}
+          }`
+        }
       </style>
 
-      <div className="text-center leading-relaxed w-6/12 text-red-950">
+      <div className="text-center leading-relaxed w-6/12 text-neutral-800">
         <div className="text-xl md:text-2xl lg:text-3xl font-semibold pb-4">
           أهلًا بكم في منصتكم التعليمية للمرحل الطبي
         </div>
