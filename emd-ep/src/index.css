@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @tailwind utilities;
+
+.noto-sans-arabic {
+  font-family: "Noto Sans Arabic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* أو أي وزن */
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+body {
+  font-family: "Noto Sans Arabic", sans-serif;
+}

@@ -42,7 +42,7 @@ function Navbar() {
     <nav
       ref={navRef}
       dir="rtl"
-      className={`fixed inset-x-0 top-0 z-50 w-full border-b-[6px] border-gray-200/70
+      className={`fixed inset-x-0 top-0 z-50 w-full border-b-[4px] border-gray-200/70
                   bg-white/90 backdrop-blur transition-transform duration-300
                   ${show ? "translate-y-0" : "-translate-y-full"}`}
       aria-label="التنقل الرئيسي"
