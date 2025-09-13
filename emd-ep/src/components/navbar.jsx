@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../logo.png";
 
@@ -13,7 +13,10 @@ function Navbar() {
   useEffect(() => {
     const setH = () => {
       if (navRef.current) {
-        document.documentElement.style.setProperty("--nav-h", `${navRef.current.offsetHeight}px`);
+        document.documentElement.style.setProperty(
+          "--nav-h",
+          `${navRef.current.offsetHeight}px`
+        );
       }
     };
     setH();
@@ -24,10 +27,17 @@ function Navbar() {
   // إخفاء/إظهار أثناء التمرير
   useEffect(() => {
     const onScroll = () => {
-      if (open) { setShow(true); return; }
+      if (open) {
+        setShow(true);
+        return;
+      }
       const y = Math.max(window.scrollY, 0);
-      if (y < 8) { setShow(true); lastY.current = y; return; }
-      if (y > lastY.current + 6) setShow(false);     // نزول -> اخفاء
+      if (y < 8) {
+        setShow(true);
+        lastY.current = y;
+        return;
+      }
+      if (y > lastY.current + 6) setShow(false); // نزول -> اخفاء
       else if (y < lastY.current - 6) setShow(true); // صعود -> اظهار
       lastY.current = y;
     };
@@ -35,7 +45,6 @@ function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [open]);
 
-  // اقفل المنيو بعد الضغط على أي رابط
   const closeMenu = () => setOpen(false);
 
   return (
@@ -50,21 +59,38 @@ function Navbar() {
       <div className="mx-auto max-w-screen-xl px-5 md:px-8">
         {/* شريط علوي */}
         <div className="grid grid-cols-3 items-center gap-x-2 md:gap-x-4 py-5 md:py-6">
-          {/* يمين: الرئيسية (ديسكتوب) + زر منيو (موبايل) */}
-          <div className="flex items-center justify-self-start">
-            <ul className="hidden md:flex flex-row-reverse items-center gap-3">
+          {/* يمين: روابط ديسكتوب */}
+          <div className="flex items-center justify-self-start ">
+            <ul className="hidden md:flex flex-row-reverse items-center gap-4 lg:gap-6">
+              {/* About داخل نفس الصفحة */}
               <li>
-                <NavLink
-                  to="/"
+                <HashLink
+                  to="/#about"
+                  smooth
+                  className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg font-medium text-red-900 hover:bg-gray-100 transition"
+                >
+                  من نحن؟
+                </HashLink>
+              </li>
+
+              {/* Home داخل نفس الصفحة */}
+              <li>
+                <HashLink
+                  to="/#home"
+                  smooth
                   className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg font-medium text-red-900 hover:bg-gray-100 transition"
                 >
                   الرئيسية
-                </NavLink>
+                </HashLink>
               </li>
             </ul>
 
+            {/* زر الموبايل */}
             <button
-              onClick={() => { setOpen(v => !v); setShow(true); }}
+              onClick={() => {
+                setOpen((v) => !v);
+                setShow(true);
+              }}
               className="md:hidden inline-flex items-center justify-center rounded-xl p-2 border text-red-900 hover:bg-gray-100 active:scale-[0.98] transition"
               aria-expanded={open}
               aria-controls="mobile-menu"
@@ -85,7 +111,7 @@ function Navbar() {
             <img src={Logo} alt="Logo" className="h-14 md:h-16 lg:h-24 w-auto object-contain" />
           </div>
 
-          {/* يسار: المرئي/المقروء (ديسكتوب) */}
+          {/* يسار: الصفحات المستقلة */}
           <div className="justify-self-end">
             <ul className="hidden md:flex flex-row-reverse items-center gap-4 lg:gap-6">
               <li>
@@ -97,21 +123,18 @@ function Navbar() {
                 </NavLink>
               </li>
               <li>
-                {/* انتبه: مسار الصفحة + الهاش */}
                 <NavLink
                   to="/videos"
-                  smooth
                   className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg font-medium text-red-900 hover:bg-gray-100 transition"
                 >
                   المحتوى المرئي
                 </NavLink>
               </li>
-              
             </ul>
           </div>
         </div>
 
-        {/* قائمة الموبايل: absolute تحت النافبار + pointer-events-none عند الإغلاق */}
+        {/* قائمة الموبايل */}
         <div
           id="mobile-menu"
           className={`md:hidden absolute inset-x-0 top-[var(--nav-h,6rem)]
@@ -121,17 +144,26 @@ function Navbar() {
           <div className="mx-auto max-w-screen-xl px-5 md:px-8">
             <div className="rounded-2xl border bg-white shadow-md overflow-hidden">
               <nav className="grid grid-cols-1">
-                <NavLink
-                  to="/"
+                <HashLink
+                  to="/#home"
+                  smooth
                   onClick={closeMenu}
                   className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition"
                 >
                   الرئيسية
-                </NavLink>
+                </HashLink>
+
+                <HashLink
+                  to="/#about"
+                  smooth
+                  onClick={closeMenu}
+                  className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition"
+                >
+                  من نحن؟
+                </HashLink>
 
                 <NavLink
                   to="/videos"
-                  smooth
                   onClick={closeMenu}
                   className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition"
                 >
