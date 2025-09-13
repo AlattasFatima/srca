@@ -1,47 +1,36 @@
+import React from "react";
+import bg from "../assets/bg.svg";
+
 function Home() {
   return (
-    <div id="home"
-        className="">
-      <section className="flex flex-col gap-6 px-4 md:px-12 lg:px-24 py-12 md:py-24 lg:py-36">
-        <h1 className="pt-5 text-center text-4xl font-bold">
-          أهلاً بكم في منصتكم التعليمية للمرحل الطبي
-        </h1>
-        <p className="text-center text-xl">
-          {" "}
-          منصة وجدرت لتكون أحد مصادر المعرفة والتطوير، وتجمع بين كيفية التعامل مع البروتوكولات
-          الطبية ومهارات التواصل، لتدعمكم في أداء رسالتكم الإنسانية بأعلى جهد وكفاءة.
-        </p>
-        <p className="text-center text-xl">
-          {" "}
-          منصة وجدرت لتكون أحد مصادر المعرفة والتطوير، وتجمع بين كيفية التعامل مع البروتوكولات
-          الطبية ومهارات التواصل، لتدعمكم في أداء رسالتكم الإنسانية بأعلى جهد وكفاءة.
-        </p>
-        <p className="text-center text-xl">
-          {" "}
-          منصة وجدرت لتكون أحد مصادر المعرفة والتطوير، وتجمع بين كيفية التعامل مع البروتوكولات
-          الطبية ومهارات التواصل، لتدعمكم في أداء رسالتكم الإنسانية بأعلى جهد وكفاءة.
-        </p>
-        <p className="text-center text-xl">
-          {" "}
-          منصة وجدرت لتكون أحد مصادر المعرفة والتطوير، وتجمع بين كيفية التعامل مع البروتوكولات
-          الطبية ومهارات التواصل، لتدعمكم في أداء رسالتكم الإنسانية بأعلى جهد وكفاءة.
-        </p>
-        <p className="text-center text-xl">
-          {" "}
-          منصة وجدرت لتكون أحد مصادر المعرفة والتطوير، وتجمع بين كيفية التعامل مع البروتوكولات
-          الطبية ومهارات التواصل، لتدعمكم في أداء رسالتكم الإنسانية بأعلى جهد وكفاءة.
-        </p>
-        <p className="text-center text-xl">
-          {" "}
-          منصة وجدرت لتكون أحد مصادر المعرفة والتطوير، وتجمع بين كيفية التعامل مع البروتوكولات
-          الطبية ومهارات التواصل، لتدعمكم في أداء رسالتكم الإنسانية بأعلى جهد وكفاءة.
-        </p>
-        <p className="text-center text-xl">
-          {" "}
-          منصة وجدرت لتكون أحد مصادر المعرفة والتطوير، وتجمع بين كيفية التعامل مع البروتوكولات
-          الطبية ومهارات التواصل، لتدعمكم في أداء رسالتكم الإنسانية بأعلى جهد وكفاءة.
-        </p>
-      </section>
+    <div
+      id="home"
+      className="relative min-h-[80vh] w-full bg-contain bg-no-repeat pb-24
+ bg-center flex items-center justify-center"
+      style={{
+        backgroundImage: `url(${bg})`,
+      }}
+    >
+      <style>
+        {`
+          @media (max-width: 342px) {
+            #home {
+              background-image: none !important;
+            }
+          }
+        `}
+      </style>
+
+      <div className="text-center leading-relaxed w-6/12 text-red-950">
+        <div className="text-xl md:text-2xl lg:text-3xl font-semibold pb-4">
+          أهلًا بكم في منصتكم التعليمية للمرحل الطبي
+        </div>
+        <span className="text-m md:text-xl lg:text-2xl font-normal">
+          منصة وجدت لتكون أحد أهم مصادر المعرفة والتطوير، وتجمع بين كيفية
+          التعامل مع البروتوكلات ومهارات التواصل، لتدعمكم في أداء رسالتكم
+          الإنسانية بأعلى جودة وكفاءة.
+        </span>
+      </div>
     </div>
   );
 }
