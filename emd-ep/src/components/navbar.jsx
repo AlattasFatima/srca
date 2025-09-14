@@ -54,11 +54,10 @@ function Navbar() {
       className={`fixed inset-x-0 top-0 z-50 w-full border-b-[4px] border-gray-200/70
                   bg-white/90 backdrop-blur transition-transform duration-300
                   ${show ? "translate-y-0" : "-translate-y-full"}`}
-      aria-label="التنقل الرئيسي"
-    >
+      aria-label="التنقل الرئيسي">
       <div className="mx-auto max-w-screen-xl px-5 md:px-8">
         {/* شريط علوي */}
-        <div className="grid grid-cols-3 items-center gap-x-2 md:gap-x-4 py-5 md:py-6">
+        <div className="grid grid-cols-3 items-center gap-x-2 md:gap-x-4 py-5 md:py-6 font-semibold">
           {/* يمين: روابط ديسكتوب */}
           <div className="flex items-center justify-self-start ">
             <ul className="hidden md:flex flex-row-reverse items-center gap-4 lg:gap-6">
@@ -67,8 +66,7 @@ function Navbar() {
                 <HashLink
                   to="/#about"
                   smooth
-                  className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg font-medium text-red-900 hover:bg-gray-100 transition"
-                >
+                  className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg text-red-900 hover:bg-gray-100 transition">
                   من نحن؟
                 </HashLink>
               </li>
@@ -76,10 +74,9 @@ function Navbar() {
               {/* Home داخل نفس الصفحة */}
               <li>
                 <HashLink
-                  to="/#home"
+                  to="/#"
                   smooth
-                  className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg font-medium text-red-900 hover:bg-gray-100 transition"
-                >
+                  className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg text-red-900 hover:bg-gray-100 transition">
                   الرئيسية
                 </HashLink>
               </li>
@@ -94,8 +91,7 @@ function Navbar() {
               className="md:hidden inline-flex items-center justify-center rounded-xl p-2 border text-red-900 hover:bg-gray-100 active:scale-[0.98] transition"
               aria-expanded={open}
               aria-controls="mobile-menu"
-              aria-label="فتح/إغلاق القائمة"
-            >
+              aria-label="فتح/إغلاق القائمة">
               <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 {open ? (
                   <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -107,8 +103,10 @@ function Navbar() {
           </div>
 
           {/* الوسط: الشعار */}
-          <div className="justify-self-center">
+          <div className="justify-self-center flex flex-col items-center">
             <img src={Logo} alt="Logo" className="h-14 md:h-16 lg:h-24 w-auto object-contain" />
+                <p className="text-center mt-4 text-[#2D2E8A] font-semibold text-lg">
+                  Emergency Medical Dispatch Educational Platform</p>
           </div>
 
           {/* يسار: الصفحات المستقلة */}
@@ -117,16 +115,14 @@ function Navbar() {
               <li>
                 <NavLink
                   to="/articles"
-                  className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg font-medium text-red-900 hover:bg-gray-100 transition"
-                >
+                  className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg text-red-900 hover:bg-gray-100 transition">
                   المحتوى المقروء
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   to="/videos"
-                  className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg font-medium text-red-900 hover:bg-gray-100 transition"
-                >
+                  className="inline-block rounded-xl px-4 py-2 text-base lg:text-lg text-red-900 hover:bg-gray-100 transition">
                   المحتوى المرئي
                 </NavLink>
               </li>
@@ -139,8 +135,7 @@ function Navbar() {
           id="mobile-menu"
           className={`md:hidden absolute inset-x-0 top-[var(--nav-h,6rem)]
                       transition-[max-height,opacity] duration-300
-                      ${open ? "max-h-64 opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none"}`}
-        >
+                      ${open ? "max-h-64 opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none"}`}>
           <div className="mx-auto max-w-screen-xl px-5 md:px-8">
             <div className="rounded-2xl border bg-white shadow-md overflow-hidden">
               <nav className="grid grid-cols-1">
@@ -148,8 +143,7 @@ function Navbar() {
                   to="/#home"
                   smooth
                   onClick={closeMenu}
-                  className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition"
-                >
+                  className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition">
                   الرئيسية
                 </HashLink>
 
@@ -157,24 +151,21 @@ function Navbar() {
                   to="/#about"
                   smooth
                   onClick={closeMenu}
-                  className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition"
-                >
+                  className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition">
                   من نحن؟
                 </HashLink>
 
                 <NavLink
                   to="/videos"
                   onClick={closeMenu}
-                  className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition"
-                >
+                  className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition">
                   المحتوى المرئي
                 </NavLink>
 
                 <NavLink
                   to="/articles"
                   onClick={closeMenu}
-                  className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition"
-                >
+                  className="block px-4 py-3 text-base font-medium text-red-900 hover:bg-gray-100 transition">
                   المحتوى المقروء
                 </NavLink>
               </nav>
