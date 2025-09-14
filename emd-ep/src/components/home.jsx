@@ -4,7 +4,7 @@ import bg from "../assets/bg.svg";
 function Home() {
   return (
     <div
-      id="home"
+      id="/"
       className="relative min-h-[80vh] w-full bg-contain bg-no-repeat pb-24
  bg-center flex items-center justify-center"
       style={{

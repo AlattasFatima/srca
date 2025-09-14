@@ -33,16 +33,14 @@ function SlidingSections() {
       <section
         id="home"
         className="md:snap-start"
-        style={{ scrollMarginTop: "var(--nav-h,6rem)" }}
-      >
+        style={{ scrollMarginTop: "var(--nav-h,6rem)" }}>
         <Home />
       </section>
 
       <section
         id="about"
         className="md:snap-start"
-        style={{ scrollMarginTop: "var(--nav-h,6rem)" }}
-      >
+        style={{ scrollMarginTop: "var(--nav-h,6rem)" }}>
         <AboutUs />
       </section>
     </div>
