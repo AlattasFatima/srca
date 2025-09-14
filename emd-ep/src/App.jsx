@@ -5,30 +5,37 @@ import Home from "./components/home";
 import Articles from "./components/articles";
 import Videos from "./components/videos";
 import AboutUs from "./components/aboutUs";
+import AOS from "aos";
+import "aos/dist/aos.css";  // Import AOS styles
 
 function SlidingSections() {
   const location = useLocation();
 
-  // سكرول تلقائي للهاش (/#home أو /#about) مع مراعاة ارتفاع النافبار
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  // Automatic scroll to hash
   useEffect(() => {
     const id = (location.hash || "").replace("#", "") || null;
     if (!id) return;
     const el = document.getElementById(id);
     if (!el) return;
 
-    // نضيف margin top يساوي ارتفاع النافبار عشان ما يغطي العنوان
+    // Add margin top equal to navbar height so that it doesn't overlap with the title
     const navH =
       parseInt(
         getComputedStyle(document.documentElement).getPropertyValue("--nav-h")
       ) || 96; // fallback 6rem
 
     const rect = el.getBoundingClientRect();
-    const y = window.scrollY + rect.top - navH + 1; // +1 عشان ما يلتصق تمامًا
+    const y = window.scrollY + rect.top - navH + 1; // +1 to prevent sticking
     window.scrollTo({ top: Math.max(y, 0), behavior: "smooth" });
   }, [location]);
 
   return (
-    // نخلي السكرول على صفحة وحدة — ونستخدم scroll-snap لإحساس "sliding"
+    // Snap scrolling effect for sliding sections
     <div className="md:snap-y md:snap-mandatory">
       <section
         id="home"
@@ -51,14 +58,14 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      {/* مسافة أعلى تعوّض النافبار الثابت */}
+      {/* Space at the top to compensate for the sticky navbar */}
       <main className="pt-[var(--nav-h,6rem)]">
         <Routes>
-          {/* كلا المسارين يعرضوا نفس العرض (Home + About) بس كل واحد باقي كـ "صفحة" في الراوتر */}
+          {/* Both paths display the same content (Home + About), but each is a "page" in the router */}
           <Route path="/" element={<SlidingSections />} />
           <Route path="/aboutUs" element={<SlidingSections />} />
 
-          {/* صفحات مستقلة كما طلبت */}
+          {/* Independent pages as requested */}
           <Route path="/articles" element={<Articles />} />
           <Route path="/videos" element={<Videos />} />
         </Routes>
