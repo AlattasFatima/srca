@@ -6,16 +6,16 @@ const MODULES = [
     id: "m1",
     title: "سلسلة توقف قلب وتنفس",
     topics: [
-      { id: "t1", title: "مدخل الحالة المسار السريع، مثال لعرض المقطع", videoUrl: "../../public/cpr.mp4" },
-      { id: "t2", title: "الاستخدام الأمثل لأداة مراقبة الضغطات المطورة", videoUrl: "https://www.example.com/video2.mp4" },
-      { id: "t3", title: "وضع المريض", videoUrl: "https://www.example.com/video3.mp4" },
+      { id: "t1", title: "مدخل الحالة المسار السريع، مثال لعرض المقطع", videoUrl: "/cpr.mp4" },  // Correct path
+      { id: "t2", title: "الاستخدام الأمثل لأداة مراقبة الضغطات المطورة", videoUrl: "/idk.mp4" },
+      { id: "t3", title: "وضع المريض", videoUrl: "" },
     ],
   },
   {
     id: "m2",
     title: "السلسلة الثانية",
     topics: [
-      { id: "t4", title: "الفيديو الاول", videoUrl: "https://www.example.com/video4.mp4" },
+      { id: "t4", title: "الفيديو الاول", videoUrl: "" },
     ],
   },
 ];
@@ -25,6 +25,9 @@ export default function Videos() {
   const [active, setActive] = useState({ module: 0, topic: 0 });
   // Sidebar open/closed state
   const [menuOpen, setMenuOpen] = useState(true);
+  
+  // Refs to keep track of video element and force video reload
+  const videoRef = React.useRef(null);
 
   // Auto-open the menu whenever viewport is >= md
   useEffect(() => {
@@ -51,6 +54,15 @@ export default function Videos() {
   // Resolve currently active content (module and topic)
   const module = MODULES[active.module];
   const topic = module.topics[active.topic];
+
+  // Handle video source change to trigger video reloading when topic changes
+  useEffect(() => {
+    if (videoRef.current && topic.videoUrl) {
+      // Reset video source to force reload when switching topics
+      videoRef.current.src = topic.videoUrl;
+      videoRef.current.load();  // Reload the video
+    }
+  }, [topic]); // Trigger effect when topic changes
 
   return (
     <div dir="rtl" className="min-h-screen bg-white">
@@ -160,10 +172,13 @@ export default function Videos() {
 
             {/* Video content */}
             <div className="mx-4 sm:mx-6 md:mx-10 lg:mx-16 xl:mx-24 2xl:mx-32 py-5">
-              <video width="100%" height="auto" controls>
-                <source src={topic.videoUrl} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              {/* Only show the video if videoUrl exists */}
+              {topic.videoUrl && topic.videoUrl !== "" && (
+                <video ref={videoRef} width="100%" height="auto" controls>
+                  <source src={topic.videoUrl} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              )}
             </div>
           </section>
         </div>
