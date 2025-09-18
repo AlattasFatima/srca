@@ -1,7 +1,7 @@
 import React from "react";
 import mission from "../assets/mission.svg";
 import vision from "../assets/vision.svg";
-import team from "../assets/team.svg";
+import team from "../assets/team.jpg";
 
 function AboutUs() {
   return (
@@ -43,7 +43,7 @@ function AboutUs() {
       </div>
       
       <section className="py-5 px-20 mt-20 text-lg md:text-2xl">
-        <img src={team} className="h-8/12 pl-8 md:mb-0 md:w-auto mx-auto" data-aos="fade-down" data-aos-duration="500" />
+        <img src={team} className="h-8/12 md:mb-0 md:w-auto mx-auto rounded-md" data-aos="fade-down" data-aos-duration="500" />
         
           <div className="py-5 text-center text-2xl md:text-3xl font-semibold text-red-900"
           data-aos="fade-up" data-aos-duration="2500">

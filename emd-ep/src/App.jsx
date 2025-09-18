@@ -5,6 +5,7 @@ import Home from "./components/home";
 import Articles from "./components/articles";
 import Videos from "./components/videos";
 import AboutUs from "./components/aboutUs";
+import Footer from "./components/footer";
 import AOS from "aos";
 import "aos/dist/aos.css";  // Import AOS styles
 
@@ -70,6 +71,7 @@ function App() {
           <Route path="/videos" element={<Videos />} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }
