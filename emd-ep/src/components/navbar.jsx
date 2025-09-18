@@ -154,7 +154,7 @@ function Navbar() {
         {/* Mobile Menu */}
         <div
           id="mobile-menu"
-          className={`md:hidden absolute inset-x-0 top-[var(--nav-h,6rem)] transition-[max-height,opacity] duration-300 ${
+          className={`md:hidden ml-8 absolute inset-x-0 top-[var(--nav-h,6rem)] transition-[max-height,opacity] duration-300 ${
             open ? "max-h-64 opacity-100 pointer-events-auto" : "max-h-0 opacity-0 pointer-events-none"
           }`}
         >
