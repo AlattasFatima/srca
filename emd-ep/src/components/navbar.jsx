@@ -117,13 +117,13 @@ function Navbar() {
           </div>
 
           {/* Center / Logo */}
-          <div className="justify-self-center flex flex-col items-center">
+          <div className="justify-self-center flex flex-col items-center w-auto">
             <img
               src={Logo}
               alt="Logo"
               className="h-14 md:h-16 lg:h-24 w-auto object-contain"
             />
-            <p className="text-center mt-4 text-[#2D2E8A] font-semibold text-lg">
+            <p className="text-center mt-4 text-[#2D2E8A] font-semibold text-md lg:text-lg">
               Emergency Medical Dispatch Educational Platform
             </p>
           </div>
