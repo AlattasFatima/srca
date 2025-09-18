@@ -2,8 +2,7 @@ name: Deploy Vite to GitHub Pages
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -15,28 +14,19 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-defaults:
-  run:
-    working-directory: ./emd-ep
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Debug path
-        run: pwd && ls -la
-
+      - run: pwd && ls -la && node -v && npm -v
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-
       - run: npm ci
       - run: npm run build
-      - run: cp dist/index.html dist/404.html
-
+      - run: cp dist/index.html dist/404.html || true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
