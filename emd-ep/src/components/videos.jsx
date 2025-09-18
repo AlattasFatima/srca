@@ -1,13 +1,14 @@
-// src/components/Videos.jsx
 import React, { useEffect, useState } from "react";
+import cpr from "../../public/cpr.mp4";
+import idk from "../../public/idk.mp4";
 
 const MODULES = [
   {
     id: "m1",
     title: "سلسلة توقف قلب وتنفس",
     topics: [
-      { id: "t1", title: "مدخل الحالة المسار السريع", videoUrl: "/cpr.mp4" },
-      { id: "t2", title: "الاستخدام الأمثل لأداة مراقبة الضغطات المطورة", videoUrl: "/idk.mp4" },
+      { id: "t1", title: "مدخل الحالة المسار السريع", videoUrl: cpr },
+      { id: "t2", title: "الاستخدام الأمثل لأداة مراقبة الضغطات المطورة", videoUrl: idk },
       { id: "t3", title: "وضع المريض", videoUrl: "" },
     ],
   },
