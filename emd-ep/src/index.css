@@ -7,5 +7,5 @@
 /* Apply the font globally */
 body {
   font-family: 'Markazi Text', serif;
-  padding-top: var(--nav-h);
+  padding-top: var(--nav-h, 6rem);
 }
