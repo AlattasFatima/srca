@@ -3,13 +3,11 @@ import bg from "../assets/bg.svg";
 
 function Home() {
   return (
-    <div
-      id="home"
+    <div id="home"
       className="relative min-h-[70vh] w-full bg-contain bg-no-repeat bg-center pb-24 flex items-center justify-center"
       data-aos="zoom-in"
       data-aos-duration="2500"
-      style={{ backgroundImage: `url(${bg})` }}
-    >
+      style={{ backgroundImage: `url(${bg})` }}>
       <style>
         {`@media (max-width: 342px) {
           #home {
@@ -24,7 +22,6 @@ function Home() {
         </div>
         <span className="block text-[#2D2E8A] font-extrabold">
           Emergency Medical Dispatch Educational Platform
-
         </span>
       </div>
     </div>
