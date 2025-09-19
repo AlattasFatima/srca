@@ -9,17 +9,17 @@ function AboutUs() {
     <div id="about" className="min-h-[80vh] w-full pt-10">
       <div className="py-5 px-20 mb-8 text-center text-2xl md:text-3xl font-semibold text-red-900" data-aos="fade-down" data-aos-duration="500">من نحن؟</div>
 
-      <div className="py-5 px-6 md:px-20 mx-20 lg:mx-44 xl:mx-77 text-lg md:text-2xl border border-gray-100 hover:border-neutral-500 rounded-lg shadow-lg mb-6" data-aos="fade-left" data-aos-duration="2500">
+      <div className="py-5 px-6 md:px-20 mx-20 lg:mx-44 xl:mx-77 text-lg md:text-2xl border border-gray-100 border-b-red-800/80 border-b-4 hover:shadow-2xl rounded-lg shadow-lg mb-6" data-aos="fade-left" data-aos-duration="2500">
         <section className="flex flex-col md:flex-row items-center justify-between">
           <img src={mission} className="h-12 pl-8 mb-4 md:mb-0 md:w-auto" />
-          <p className="flex-1 py-4 text-center md:text-right font-normal text-neutral-700">
-            <span className="font-semibold text-red-900">رؤيتنا</span><br />
+          <p className="flex-1 py-4 text-center md:text-right text-neutral-700">
+            <span className=" font-semibold text-red-900">رؤيتنا</span><br />
             أن تكون المنصة المرجع الأول لتأهيل وتطوير المرحّل الطبي بما يحقق أعلى معايير الجودة والاحترافية في إدارة البلاغات الإسعافية.
           </p>
         </section>
       </div>
       
-      <div className="py-5 px-6 md:px-20 mx-20 lg:mx-44 xl:mx-77 text-right text-lg md:text-2xl border border-gray-100 hover:border-neutral-500 rounded-lg shadow-md mb-6" data-aos="fade-right" data-aos-duration="2500">
+      <div className="py-5 px-6 md:px-20 mx-20 lg:mx-44 xl:mx-77 text-right text-lg md:text-2xl border  border-gray-100 border-b-red-800/80 border-b-4 hover:shadow-2xl rounded-lg shadow-md mb-6" data-aos="fade-right" data-aos-duration="2500">
         <section className="flex flex-col md:flex-row items-center justify-between">
           <img src={vision} className="h-12 pl-8 mb-4 md:mb-0 md:w-auto" />
           <p className="flex-1 py-4 text-center md:text-right font-normal text-neutral-700">

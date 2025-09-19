@@ -52,7 +52,7 @@ function Navbar() {
     <nav
       ref={navRef}
       dir="rtl"
-      className={`fixed inset-x-0 top-0 z-50 w-full border-b-[4px] border-gray-200/70 bg-white/90 backdrop-blur transition-transform duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 w-full border-b-[6px] border-red-800/80 bg-white/90 backdrop-blur transition-transform duration-300 ${
         show ? "translate-y-0" : "-translate-y-full"
       }`}
       aria-label="التنقل الرئيسي"
@@ -123,7 +123,7 @@ function Navbar() {
               alt="Logo"
               className="h-14 md:h-16 lg:h-24 w-auto object-contain"
             />
-            <p className="text-center mt-4 text-[#2D2E8A] font-semibold text-md lg:text-lg">
+            <p className="text-center mt-4 text-[#2D2E8A] font-extrabold text-xl">
               Emergency Medical Dispatch Educational Platform
             </p>
           </div>

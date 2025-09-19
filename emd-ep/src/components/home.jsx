@@ -18,14 +18,13 @@ function Home() {
         }`}
       </style>
 
-      <div className="text-center leading-relaxed w-6/12 xl:w-5/12 text-neutral-700 space-y-4">
-        <div className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold md:font-bold">
+      <div className="text-center text-xl md:text-2xl lg:text-3xl xl:text-4xl leading-relaxed w-6/12 xl:w-5/12 text-neutral-700 space-y-4">
+        <div className="mt-24 font-semibold md:font-bold">
           أهلًا بكم في منصتكم التعليمية للمرحل الطبي
         </div>
-        <span className="block text-base md:text-xl lg:text-2xl xl:text-3xl">
-          منصة وجدت لتكون أحد أهم مصادر المعرفة والتطوير، وتجمع بين كيفية التعامل
-          مع البروتوكلات ومهارات التواصل، لتدعمكم في أداء رسالتكم الإنسانية
-          بأعلى جودة وكفاءة.
+        <span className="block text-[#2D2E8A] font-extrabold">
+          Emergency Medical Dispatch <br/> Educational Platform
+
         </span>
       </div>
     </div>
