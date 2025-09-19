@@ -129,7 +129,7 @@ function Navbar() {
 
             <img src={Logo} className="hidden md:block h-14 md:h-16 lg:h-24 w-auto object-contain" />
 
-            <p className="text-center mt-4 text-[#2D2E8A] font-extrabold text-xl">
+            <p className="text-center mt-4 text-[#2D2E8A] font-extrabold text-xl lg:text-2xl">
               Emergency Medical Dispatch Educational Platform
             </p>
           </div>
