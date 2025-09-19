@@ -9,7 +9,7 @@ function AboutUs() {
   return (
     <div id="about" dir="rtl" className="relative isolate min-h-[80vh] w-full pt-10">
        <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 w-1/2 md:w-1/3">
-        <div className="h-full w-full bg-gradient-to-br from-white via-red-100 to-red-200/60 blur-2xl opacity-90" />
+        <div className="h-full w-full bg-gradient-to-br from-red-50 to-red-100/60 rounded-3xl blur-2xl opacity-90" />
       </div>
 
       <section className="relative z-10 mx-auto max-w-screen-xl px-6 md:px-8 py-6 md:py-10 scroll-mt-[var(--nav-h,96px)]">
