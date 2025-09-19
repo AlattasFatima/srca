@@ -12,7 +12,7 @@ function AboutUs() {
       <section className="mx-auto max-w-screen-xl px-8 md:px-8 py-6 md:py-10 scroll-mt-[var(--nav-h,96px)]">
         <div className="grid md:grid-cols-2 items-center">
           <div className="order-2 text-center md:text-right">
-            <h2 className="md:text-righttext-2xl md:text-3xl lg:text-4xl font-extrabold text-red-900 leading-snug mb-3"
+            <h2 className="md:text-right text-2xl md:text-3xl lg:text-4xl font-extrabold text-red-900 leading-snug mb-3"
             data-aos="fade-down" data-aos-duration="2500">
               من نحن؟   
             </h2>
