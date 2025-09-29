@@ -12,21 +12,6 @@ function Navbar() {
   const lastY = useRef(0);
   const navRef = useRef(null);
 
-  // Set CSS variable for nav height
-  useEffect(() => {
-    const setH = () => {
-      if (navRef.current) {
-        document.documentElement.style.setProperty(
-          "--nav-h",
-          `${navRef.current.offsetHeight}px`
-        );
-      }
-    };
-    setH();
-    window.addEventListener("resize", setH);
-    return () => window.removeEventListener("resize", setH);
-  }, []);
-
   // Hide/show nav on scroll
   useEffect(() => {
     const onScroll = () => {

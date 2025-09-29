@@ -4,7 +4,7 @@ import bg from "../assets/bg.svg";
 function Home() {
   return (
     <div id="home"
-      className="relative min-h-[70vh] w-full bg-contain bg-no-repeat bg-center pb-24 flex items-center justify-center"
+      className="relative min-h-[70vh] w-full bg-contain bg-no-repeat bg-center mt-8 pb-24 flex items-center justify-center"
       data-aos="zoom-in"
       data-aos-duration="2500"
       style={{ backgroundImage: `url(${bg})` }}>
