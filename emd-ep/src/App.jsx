@@ -6,6 +6,7 @@ import Home from "./components/home";
 import Articles from "./components/articles";
 import Videos from "./components/videos";
 import AboutUs from "./components/aboutUs";
+import Login from "./components/login"
 import Footer from "./components/footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -61,6 +62,7 @@ function App() {
         {/* Pages with sticky footer */}
         <Route path="/articles" element={<StickyPage><Articles /></StickyPage>} />
         <Route path="/videos" element={<StickyPage><Videos /></StickyPage>} />
+        <Route path="/login" element={<StickyPage><Login /></StickyPage> } />
       </Routes>
     </HashRouter>
   );

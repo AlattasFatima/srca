@@ -12,15 +12,17 @@ function AboutUs() {
         <div className="h-full w-full bg-gradient-to-br from-red-50 to-red-100/60 rounded-3xl blur-2xl opacity-90" />
       </div>
 
+      {/*About us*/}
       <section className="relative z-10 mx-auto max-w-screen-xl px-6 md:px-8 py-6 md:py-10 scroll-mt-[var(--nav-h,96px)]">
-        <div className="grid md:grid-cols-2 items-center gap-8">
-          <div className="order-2 text-center md:text-right">
+        <div className="grid md:grid-cols-3 items-center gap-8">
+
+          <div className="order-2 text-center md:text-right md:col-span-2 md:max-w-2xl lg:max-w-3xl">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-red-900 leading-snug mb-3"
               data-aos="fade-down" data-aos-duration="2500">
               من نحن؟
             </h2>
 
-            <p className="text-gray-700 leading-7 text-lg/8 md:text-2xl/10"
+            <p className="text-gray-700 leading-7 text-xl/8 md:text-3xl/10"
               data-aos="fade-up" data-aos-duration="2500">
               منصة وجدت لتكون أحد أهم مصادر المعرفة والتطوير، تجمع بين كيفية التعامل مع البروتوكولات
               الطبية ومهارات التواصل، لتدعمكم في أداء رسالتكم الإنسانية بأعلى جودة وكفاءة.
@@ -28,12 +30,12 @@ function AboutUs() {
           </div>
 
           <div className="order-1 flex justify-center md:justify-end">
-            <img src={Logo} 
-              className="w-2/3 max-w-[260px]"
+            <img src={Logo} className="w-2/3 max-w-[260px]"
               data-aos="fade-left" data-aos-duration="2500"/>
           </div>
         </div>
-      </section>
+    </section>
+
 
       {/*Mission*/}
       <div className="relative z-10 py-5 px-6 md:px-10 mx-6 md:mx-12 lg:mx-28 text-lg/8 md:text-2xl/10
@@ -53,8 +55,7 @@ function AboutUs() {
       </div>
 
       {/*Vision*/}
-      <div
-        className="relative z-10 py-5 px-6 md:px-10 mx-6 md:mx-12 lg:mx-28 text-lg/8 md:text-2xl/10
+      <div className="relative z-10 py-5 px-6 md:px-10 mx-6 md:mx-12 lg:mx-28 text-lg/8 md:text-2xl/10
           border border-gray-100 border-b-red-800/80 border-b-4 hover:shadow-2xl rounded-lg shadow-lg mb-6
           bg-white/80 backdrop-blur-sm"
           data-aos="fade-right" data-aos-duration="2500">
@@ -83,7 +84,7 @@ function AboutUs() {
 
         <p className="text-lg/8 md:text-2xl/10 py-4 lg:w-4/6 mx-auto mb-8 text-center font-normal text-neutral-700"
           data-aos="fade-left" data-aos-duration="2500">
-          يقف خلف هذه المنصة فريق واحد متكامل من اخصائيين ضمان جودة وتطوير إرسال الطوارئ، يعملون بروح
+          يقف خلف هذه المنصة فريق واحد متكامل من اخصائيين ضمان جودة إرسال الطوارئ بقسم الجودة بمنطقة مكة المكرمة، يعملون بروح
           مشتركة في تمكين المرحّل الطبي من أداء دوره الحيوي بكفاءة وفعالية لتقديم محتوى تدريبي متجدد
           وتجربة تعليمية ملهمة تسهم في جودة الاستجابة الإسعافية وإنقاذ الأرواح.
         </p>
@@ -106,6 +107,7 @@ function AboutUs() {
               title="اتصل بنا">
               <FaPhone />
             </a>
+            
           </div>
         </div>
       </footer>
