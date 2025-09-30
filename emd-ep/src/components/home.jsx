@@ -13,8 +13,7 @@ function Home() {
           backgroundPosition: "center",
           backgroundSize: "auto",
           minHeight: "75vh",
-        }}
-      >
+        }}>
         {/* إلغاء الخلفية على الشاشات الصغيرة جدًا */}
         <style>{`@media (max-width: 342px) { #home { background-image: none !important; } }`}</style>
 

@@ -32,11 +32,10 @@ function Navbar() {
     <nav ref={navRef} dir="rtl"
       className={`fixed inset-x-0 top-0 z-50 w-full border-b-[6px] border-red-800/80 bg-white/90 backdrop-blur transition-transform duration-300 ${
         show ? "translate-y-0" : "-translate-y-full"}`} aria-label="التنقل الرئيسي">
-      <div className="max-w-screen-2xl mx-6 md:mx-8 px-5 md:px-8">
+      <div className="max-w-screen-2xl w-full mx-auto px-5 md:px-8">
         <div className="flex items-center justify-between py-4 md:hidden">
 
-  <button
-    onClick={() => { setOpen(v => !v); setShow(true); }}
+  <button onClick={() => { setOpen(v => !v); setShow(true); }}
     className="inline-flex items-center justify-center rounded-xl p-2 border text-red-900 hover:bg-gray-100 active:scale-[0.98] transition order-2"
     aria-expanded={open}
     aria-controls="mobile-menu"
