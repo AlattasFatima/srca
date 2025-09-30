@@ -93,7 +93,7 @@ export default function Articles() {
   const styledMd = highlightToHtml(content.body, HIGHLIGHTS);
 
   return (
-    <div dir="rtl" className="h-full bg-white mt-8">
+    <div dir="rtl" className="h-full bg-white">
       <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 py-6">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl sm:text-3xl font-bold text-[#82181a]">المحتوى المقروء</h1>

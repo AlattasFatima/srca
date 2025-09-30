@@ -120,7 +120,7 @@ export default function Videos() {
   };
 
   return (
-    <div dir="rtl" className="h-full bg-white mt-8">
+    <div dir="rtl" className="h-full bg-white">
       <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 py-6">
         {/* العنوان والهامبرغر */}
         <div className="flex items-center justify-between mb-6">
