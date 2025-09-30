@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import Logo from "../../public/logo.png";
-import sraLogo from "../assets/srcaLogo.jpg";
+import sraLogo from "../assets/srcaLogo.png";
 import srcaLogo1 from "../assets/srcaLogo1.png";
 
 function Navbar() {
@@ -135,7 +135,7 @@ function Navbar() {
 
         <div className="pb-4 text-center">
           <p className="text-[#2D2E8A] font-extrabold text-lg md:text-xl lg:text-2xl">
-            Emergency Medical Dispatch Educational Platform
+            Emergency Medical Dispatcher Educational Platform
           </p>
         </div>
       </div>
