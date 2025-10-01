@@ -17,14 +17,14 @@ function AboutUs() {
       {/* About us */}
       <section className="relative z-10 mx-auto max-w-screen-xl px-6 md:px-8 py-6 md:py-10 scroll-mt-[var(--nav-h,96px)]">
         
-        <div className="grid md:grid-cols-3 items-center gap-8">
+        <div className="grid md:grid-cols-3 items-center md:gap-8">
           <div className="order-2 text-center md:text-right md:col-span-2 md:max-w-2xl lg:max-w-3xl">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-red-900 leading-snug mb-3"
               data-aos="fade-down" data-aos-duration="2500">
               من نحن؟
             </h2>
 
-            <p className="w-3/4 text-gray-700 leading-7 text-xl/8 md:text-3xl/10"
+            <p className="w- md:w-3/4 text-gray-700 leading-7 text-xl/8 md:text-3xl/10"
               data-aos="fade-up" data-aos-duration="2500">
               منصة وجدت لتكون أحد أهم مصادر المعرفة والتطوير، تجمع بين كيفية التعامل مع البروتوكولات
               الطبية ومهارات التواصل، لتدعمكم في أداء رسالتكم الإنسانية بأعلى جودة وكفاءة.
