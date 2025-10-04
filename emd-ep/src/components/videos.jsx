@@ -248,7 +248,7 @@ export default function Videos() {
           <div className="relative w-full max-w-lg rounded-2xl border shadow-xl p-5 md:p-6 bg-white">
             <div className="flex items-start justify-between gap-3 mb-4">
               <h4 id="quiz-title" className="text-lg font-semibold text-[#2D2E8A]">
-                كويز الفيديو
+                Quiz
               </h4>
               <button
                 onClick={() => setQuizOpen(false)}

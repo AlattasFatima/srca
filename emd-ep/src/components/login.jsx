@@ -55,7 +55,7 @@ function Login() {
 
         <form className="space-y-5" onSubmit={handleSubmit} dir="rtl" noValidate>
           <div className="text-right">
-            <label htmlFor="username" className="block text-sm font-medium text-neutral-700 mb-1">أدخل بريدك الجامعي/الوظيفي</label>
+            <label htmlFor="username" className="block text-sm font-medium text-neutral-700 mb-1">أدخل بريدك الوظيفي</label>
             
             <input type="email" id="username"
               placeholder={`name${allowedDomain}`}
