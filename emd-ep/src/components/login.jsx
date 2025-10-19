@@ -55,7 +55,7 @@ function Login() {
 
         <form className="space-y-5" onSubmit={handleSubmit} dir="rtl" noValidate>
           <div className="text-right">
-            <label htmlFor="username" className="block text-sm font-medium text-neutral-700 mb-1">أدخل بريدك الوظيفي</label>
+            <label htmlFor="username" className="block text-sm lg:text-base font-medium text-neutral-700 mb-1">أدخل بريدك الوظيفي</label>
             
             <input type="email" id="username"
               placeholder={`name${allowedDomain}`}
@@ -73,14 +73,14 @@ function Login() {
               aria-invalid={Boolean(touchedEmail && emailError)}
               aria-describedby="email-help" />
 
-            <div id="email-help" className="mt-2 text-xs text-neutral-600">
+            <div id="email-help" className="mt-2 text-xs lg:text-base text-neutral-600">
               يجب أن ينتهي بريدك بـ <span className="font-semibold text-[#2D2E8A]">{allowedDomain}</span>
             </div>
-            {touchedEmail && emailError && <p className="mt-2 text-sm text-red-600">{emailError}</p>}
+            {touchedEmail && emailError && <p className="mt-2 text-sm lg:text-base text-red-600">{emailError}</p>}
           </div>
 
           <div className="text-right">
-            <label htmlFor="password" className="block text-sm font-medium text-neutral-700 mb-1">كلمة المرور</label>
+            <label htmlFor="password" className="block text-sm lg:text-base font-medium text-neutral-700 mb-1">كلمة المرور</label>
             <div className="relative">
               
               <input type={showPwd ? "text" : "password"}
@@ -99,7 +99,7 @@ function Login() {
 
               <button type="button"
                 onClick={() => setShowPwd((s) => !s)}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-[#2D2E8A] hover:underline"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-sm lg:text-base text-[#2D2E8A] hover:underline"
                 aria-label={showPwd ? "إخفاء كلمة المرور" : "إظهار كلمة المرور"}>
                 {showPwd ? "إخفاء" : "إظهار"}
               </button>
@@ -107,13 +107,13 @@ function Login() {
             </div>
 
             {touchedPwd && isPwdShort && (
-              <p id="password-help" className="mt-2 text-sm text-red-600">
+              <p id="password-help" className="mt-2 text-sm lg:text-base text-red-600">
                 تنبيه: الحد الأدنى لطول كلمة المرور هو <span className="font-bold">8 أحرف</span>.
               </p>
             )}
           </div>
 
-          {error && <p className="text-sm text-red-600 text-center font-medium">{error}</p>}
+          {error && <p className="text-sm lg:text-base text-red-600 text-center font-medium">{error}</p>}
 
           <button type="submit"
             className="w-full rounded-xl bg-[#2D2E8A] text-white font-bold py-2 hover:bg-[#26276f] transition disabled:opacity-60 disabled:cursor-not-allowed"
