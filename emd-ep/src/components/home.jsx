@@ -5,7 +5,6 @@ import bg from "../assets/bg.jpg";
 function Home() {
   return (
     <div id="home" className="relative w-full mt-8">
-      {/* ====== Section مع الخلفية ====== */}
       <div
         className="relative w-full"
         style={{
