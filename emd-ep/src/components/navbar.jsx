@@ -77,7 +77,7 @@ function Navbar() {
             className="text-lg text-red-900 hover:bg-gray-100 rounded-xl px-3 py-2 transition">
             من نحن؟
           </HashLink>
-        
+
           <NavLink to="/articles" className={linkCls}>
             المحتوى المقروء
           </NavLink>
