@@ -78,11 +78,12 @@ function Navbar() {
             من نحن؟
           </HashLink>
 
-          <img src={Logo} className="h-16 lg:h-20 w-auto object-contain" alt="EMD+EP" />
-
           <NavLink to="/articles" className={linkCls}>
             المحتوى المقروء
           </NavLink>
+
+            <img src={Logo} className="h-16 lg:h-20 w-auto object-contain" alt="EMD+EP" />
+
           <NavLink to="/videos" className={linkCls}>
             المحتوى المرئي
           </NavLink>
