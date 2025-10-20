@@ -35,7 +35,7 @@ function Home() {
       </div>
 
       {/* ====== شريط تحت الخلفية ====== */}
-      <div className="w-full bg-red-800 text-white py-4 text-center text-md md:text-xl lg:text-2xl xl:text-3xl font-bold">
+      <div className="w-full bg-red-800 text-white py-4 text-center text-base md:text-xl lg:text-2xl xl:text-3xl font-bold">
   <Typewriter
     words={[
       'الجودة\u00A0\u00A0\u00A0\u00A0\u00A0•\u00A0\u00A0\u00A0\u00A0\u00A0الثقة\u00A0\u00A0\u00A0\u00A0\u00A0•\u00A0\u00A0\u00A0\u00A0\u00A0التطوير المستمر\u00A0\u00A0\u00A0\u00A0\u00A0•\u00A0\u00A0\u00A0\u00A0\u00A0السرعة\u00A0\u00A0\u00A0\u00A0\u00A0•\u00A0\u00A0\u00A0\u00A0\u00A0الإنسانية'

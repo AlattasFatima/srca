@@ -129,8 +129,7 @@ export default function Videos() {
             onClick={() => setMenuOpen((s) => !s)}
             className="md:hidden px-4 py-2 rounded-lg border shadow-sm text-sm"
             style={{ borderColor: "#404040", color: "#404040", background: "#ffffff" }}
-            aria-expanded={menuOpen}
-          >
+            aria-expanded={menuOpen}>
             {menuOpen ? "إغلاق القائمة" : "فتح القائمة"}
           </button>
         </div>
@@ -144,8 +143,7 @@ export default function Videos() {
                 menuOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0",
                 "md:max-h-none md:opacity-100",
               ].join(" ")}
-              style={{ background: "#ffffff", borderColor: "#404040" }}
-            >
+              style={{ background: "#ffffff", borderColor: "#404040" }}>
               <div className="p-4">
                 <h2 className="text-lg font-semibold mb-3" style={{ color: "#404040" }}>
                   الفيديوهات
@@ -162,8 +160,7 @@ export default function Videos() {
                           className={[
                             "w-full text-right px-3 py-2 rounded-lg transition-colors whitespace-normal break-words leading-6 flex items-center justify-between gap-2",
                             isActive ? "bg-[#2D2E8A] text-white" : "hover:bg-gray-100 text-[#404040]",
-                          ].join(" ")}
-                        >
+                          ].join(" ")}>
                           <span className="truncate">{m.title}</span>
                           <span className="flex items-center gap-1">
                             {/* شارة نتيجة الكويز */}
@@ -172,8 +169,7 @@ export default function Videos() {
                                 className={
                                   "text-[11px] px-2 py-0.5 rounded-full " +
                                   (r.isCorrect ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700")
-                                }
-                              >
+                                }>
                                 {r.isCorrect ? "✓" : "✗"}
                               </span>
                             )}
@@ -190,12 +186,10 @@ export default function Videos() {
           {/* منطقة الفيديو */}
           <section
             className="rounded-2xl border shadow-sm flex flex-col overflow-visible"
-            style={{ background: "#ffffff", borderColor: "#404040" }}
-          >
+            style={{ background: "#ffffff", borderColor: "#404040" }}>
             <div
               className="flex items-start sm:items-center justify-between gap-3 border-b px-4 py-3"
-              style={{ borderColor: "#404040" }}
-            >
+              style={{ borderColor: "#404040" }}>
               <div className="min-w-0">
                 <h3 className="font-semibold text-[#2D2E8A] text-lg">{current.title}</h3>
                 <p className="text-sm text-gray-500 mt-1">المحتوى المرئي</p>
@@ -211,8 +205,7 @@ export default function Videos() {
                     isCompletedOnce ? "hover:bg-gray-50" : "opacity-50 cursor-not-allowed",
                   ].join(" ")}
                   style={{ borderColor: "#404040", color: "#404040", background: "#ffffff" }}
-                  title={isCompletedOnce ? "إعادة الكويز" : "شاهد الفيديو حتى النهاية أولًا"}
-                >
+                  title={isCompletedOnce ? "إعادة الكويز" : "شاهد الفيديو حتى النهاية أولًا"}>
                   إعادة الكويز
                 </button>
               </div>
@@ -236,8 +229,7 @@ export default function Videos() {
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
           role="dialog"
           aria-modal="true"
-          aria-labelledby="quiz-title"
-        >
+          aria-labelledby="quiz-title">
           {/* الخلفية */}
           <div
             className="absolute inset-0 bg-black/40 backdrop-blur-sm"
@@ -254,8 +246,7 @@ export default function Videos() {
                 onClick={() => setQuizOpen(false)}
                 className="rounded-lg border px-3 py-1.5 text-sm hover:bg-gray-50"
                 style={{ borderColor: "#404040", color: "#404040", background: "#ffffff" }}
-                aria-label="إغلاق"
-              >
+                aria-label="إغلاق">
                 إغلاق
               </button>
             </div>
@@ -278,8 +269,7 @@ export default function Videos() {
                         isCorrectChoice ? "bg-green-50 border-green-300" : "",
                         isWrongSelected ? "bg-red-50 border-red-300" : "",
                       ].join(" ")}
-                      style={{ borderColor: "#e5e7eb" }}
-                    >
+                      style={{ borderColor: "#e5e7eb" }}>
                       <input
                         type="radio"
                         name="quiz"
@@ -302,8 +292,7 @@ export default function Videos() {
                     "w-full rounded-xl px-4 py-2.5 font-medium text-white",
                     selectedOption === null ? "opacity-60 cursor-not-allowed" : "hover:brightness-110",
                   ].join(" ")}
-                  style={{ background: "#2D2E8A" }}
-                >
+                  style={{ background: "#2D2E8A" }}>
                   إرسال الإجابة
                 </button>
               ) : (
@@ -312,24 +301,21 @@ export default function Videos() {
                     className={
                       "w-full rounded-xl px-4 py-2.5 font-medium text-center " +
                       (currentResult.isCorrect ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800")
-                    }
-                  >
+                    }>
                     {currentResult.isCorrect ? "إجابة صحيحة ✓" : "إجابة غير صحيحة ✗"}
                   </div>
                   <div className="flex gap-2">
                     <button
                       onClick={() => setQuizOpen(false)}
                       className="flex-1 rounded-xl px-4 py-2.5 border hover:bg-gray-50"
-                      style={{ borderColor: "#404040", color: "#404040", background: "#ffffff" }}
-                    >
+                      style={{ borderColor: "#404040", color: "#404040", background: "#ffffff" }}>
                       تم
                     </button>
                     <button
                       onClick={retryInPlace}
                       className="flex-1 rounded-xl px-4 py-2.5 text-white hover:brightness-110"
                       style={{ background: "#2D2E8A" }}
-                      title="إعادة المحاولة بدون إعادة مشاهدة الفيديو"
-                    >
+                      title="إعادة المحاولة بدون إعادة مشاهدة الفيديو">
                       إعادة المحاولة
                     </button>
                   </div>
