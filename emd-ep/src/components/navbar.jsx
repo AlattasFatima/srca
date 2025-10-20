@@ -99,9 +99,9 @@ function Navbar() {
             to="/login"
             aria-label="تسجيل الدخول"
             title="تسجيل الدخول"
-            className="inline-flex items-center justify-center rounded-xl p-2 border text-red-900 hover:bg-gray-100 transition">
+            className="inline-flex items-center justify-center rounded-xl p-2 border-2 text-red-900 hover:bg-gray-100 transition">
             <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M5.5 20a8.5 8.5 0 1113 0M12 12a4 4 0 100-8 4 4 0 000 8z" />
+              <path strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" d="M5.5 20a8.5 8.5 0 1113 0M12 12a4 4 0 100-8 4 4 0 000 8z" />
             </svg>
           </NavLink>
         </div>
