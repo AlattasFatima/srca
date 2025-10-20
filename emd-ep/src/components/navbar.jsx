@@ -77,12 +77,13 @@ function Navbar() {
             className="text-lg text-red-900 hover:bg-gray-100 rounded-xl px-3 py-2 transition">
             من نحن؟
           </HashLink>
-
-          <img src={Logo} className="h-16 lg:h-20 w-auto object-contain" alt="EMD+EP" />
-
+        
           <NavLink to="/articles" className={linkCls}>
             المحتوى المقروء
           </NavLink>
+          
+          <img src={Logo} className="h-16 lg:h-20 w-auto object-contain" alt="EMD+EP" />
+
           <NavLink to="/videos" className={linkCls}>
             المحتوى المرئي
           </NavLink>
