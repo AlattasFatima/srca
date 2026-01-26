@@ -1,13 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import heartAttack from "../../public/heartAttack.mp4";
 import symptoms from "../../public/symptoms.mp4";
+import standards from "../../public/standards.mp4";
+import questioning from "../../public/questioning.mp4";
 
 const MODULES = [
   { id: "v1", title: "توقف قلب أو تنفس المرتبط بإصابة", videoUrl: heartAttack },
   { id: "v2", title: "الأعراض ذات الأولوية", videoUrl: symptoms },
+  { id: "v3", title: "الإستجواب الأمثل لطالب الخدمة الإسعافية", videoUrl: questioning },
+  { id: "v4", title:"معايير خدمات طالب الخدمة الإسعافية", videoUrl:standards},
 ];
 
-/** عدّل الأسئلة هنا لكل فيديو */
+/** اسئلة كل فيديو */
 const QUIZZES = {
   v1: {
     question: "عند ما يصرح متصل عن وجود مصاب تعرض لحادث دهس والان فاقد للوعي ولا يتنفس فإن بروتوكول الشكوى الرئيسية المناسب هو؟",
@@ -19,6 +23,16 @@ const QUIZZES = {
     options: ["مستوى متغير من الوعي", "تنفس غير طبيعي", "الم البطن"],
     correctIndex: 2,
   },
+  v3: {
+    question : "أي مما يلي ليس من ضمن النقاط التي  يجب تجنبها خلال كل مكالمة ؟",
+    options: ["أ- السلوكيات المحظورة","ب- خلق توقعات لا يمكن التحكم بها", "ج- اظهار التعاطف", "د- الثغرات"],
+    correctIndex: 2,
+  },
+  v4: {
+    question: "سيصنف جميع ما يلي على انه أسلوب طرح خاطئ ماعدا:",
+    options: ["أ- دمج السؤال بعبارة توضيحية", "ب - طرح كل سؤال من أسئلة البروتوكول بشكل منفرد مع الالتزام التام بالحفاظ على معناه كاملاً في حال السماح بإعادة الصياغة ؛والالتزام بعدم دمجه بسؤال اخر او عبارة توضيحية او تضمينه بإجابة او طرحه بطريقة إيحائية أو الإخلال بترتيبه", "ج- دمج السؤال بسؤال اخر", "د-تضمين السؤال بإجابة"],
+    correctIndex: 1,
+  }
 };
 
 const RESULTS_KEY = "emd_ep_quiz_results";
@@ -30,7 +44,7 @@ export default function Videos() {
   const [quizOpen, setQuizOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
 
-  // نتائج الكويز لكل فيديو
+  // نتائج الكويز 
   const [results, setResults] = useState(() => {
     try {
       const raw = localStorage.getItem(RESULTS_KEY);
