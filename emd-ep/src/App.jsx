@@ -1,6 +1,9 @@
 // App.jsx
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+
+import ProtectedRoute from "./components/protectedRoute";
+
 import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Articles from "./components/articles";
@@ -10,6 +13,7 @@ import Login from "./components/login"
 import Footer from "./components/footer";
 import SuccessCases from "./components/successCases";
 import Stories from "./components/stories";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -62,12 +66,33 @@ function App() {
         <Route path="/aboutUs" element={<SlidingSections />} />
 
         {/* Pages with sticky footer */}
-        <Route path="/articles" element={<StickyPage><Articles /></StickyPage>} />
-        <Route path="/videos" element={<StickyPage><Videos /></StickyPage>} />
+
+        {/* Protected pages */}
+        <Route element={<ProtectedRoute />}>
+  <Route
+    path="/articles"
+    element={
+      <StickyPage>
+        <Articles />
+      </StickyPage>
+    }
+  />
+
+  <Route
+    path="/videos"
+    element={
+      <StickyPage>
+        <Videos />
+      </StickyPage>
+    }
+  />
+</Route>
+
         <Route path="/login" element={<StickyPage><Login /></StickyPage> } />
         <Route path="/success-cases" element={<StickyPage><SuccessCases /></StickyPage>} />
         <Route path="/inspiring-stories" element={<StickyPage><Stories /></StickyPage>} />
       </Routes>
+
     </HashRouter>
   );
 }

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/articles";
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [touchedPwd, setTouchedPwd] = useState(false);
@@ -45,7 +47,17 @@ function Login() {
       return;
     }
 
-    navigate("/articles");
+    // بعد فحوصات الإيميل والباسوورد الحالية (emailError + طول الباسوورد)
+
+if (normalizedEmail === "test@srca.org.sa" && password === "12345678") {
+  localStorage.setItem("user", JSON.stringify({ email: normalizedEmail }));
+  navigate(from, { replace: true });
+  return;
+}
+
+setError("البريد الوظيفي او كلمة المرور خاطئة");
+
+
   };
 
   return (
