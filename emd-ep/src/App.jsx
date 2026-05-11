@@ -65,34 +65,30 @@ function App() {
         <Route path="/" element={<SlidingSections />} />
         <Route path="/aboutUs" element={<SlidingSections />} />
 
-        {/* Pages with sticky footer */}
+        {/* Protected pages - temporarily disabled */}
+        {/* <Route element={<ProtectedRoute />}> */}
+          <Route
+            path="/articles"
+            element={
+              <StickyPage>
+                <Articles />
+              </StickyPage>
+            }
+          />
+          <Route
+            path="/videos"
+            element={
+              <StickyPage>
+                <Videos />
+              </StickyPage>
+            }
+          />
+        {/* </Route> */}
 
-        {/* Protected pages */}
-        <Route element={<ProtectedRoute />}>
-  <Route
-    path="/articles"
-    element={
-      <StickyPage>
-        <Articles />
-      </StickyPage>
-    }
-  />
-
-  <Route
-    path="/videos"
-    element={
-      <StickyPage>
-        <Videos />
-      </StickyPage>
-    }
-  />
-</Route>
-
-        <Route path="/login" element={<StickyPage><Login /></StickyPage> } />
+        <Route path="/login" element={<StickyPage><Login /></StickyPage>} />
         <Route path="/success-cases" element={<StickyPage><SuccessCases /></StickyPage>} />
         <Route path="/inspiring-stories" element={<StickyPage><Stories /></StickyPage>} />
       </Routes>
-
     </HashRouter>
   );
 }
