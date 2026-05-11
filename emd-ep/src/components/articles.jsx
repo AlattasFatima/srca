@@ -47,6 +47,12 @@ const TOPICS = [
 \`\`\`
 `,
   },
+  {
+    id: "t2",
+    title:"التوصيات الأربع و مستهدف سرعة البدء بالضغطات الصدرية",
+    type: "pdf",
+    pdfUrl: "../public/FourRecommendations.pdf"
+  }
 ];
 
 export default function Articles() {
@@ -90,8 +96,8 @@ export default function Articles() {
   ];
 
   // نولّد Markdown يحوي <span> ملوّنة:
-  const styledMd = highlightToHtml(content.body, HIGHLIGHTS);
-
+const styledMd = content.type === "pdf" ? "" : highlightToHtml(content.body ?? "", HIGHLIGHTS);
+  
   return (
     <div dir="rtl" className="h-full bg-white">
       <div className="mx-auto max-w-screen-2xl px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-24 py-6">
@@ -222,22 +228,27 @@ export default function Articles() {
               }}>
               {/* عرض Markdown مع ألوان مخصصة للكلمات */}
               <div className="pb-2 prose prose-neutral max-w-none rtl">
-                <ReactMarkdown
-                  remarkPlugins={[remarkGfm]}
-                  rehypePlugins={[rehypeRaw]}
-                  components={{
-                    h1: (props) => (
-                      <h1 className="text-2xl md:text-3xl font-extrabold text-[#82181a] mb-4" {...props} />
-                    ),
-                    h2: (props) => (
-                      <h2 className="text-xl md:text-2xl font-bold text-[#2D2E8A] mt-6 mb-3" {...props} />
-                    ),
-                    code: (props) => <code className="px-1.5 py-0.5 rounded bg-gray-100" {...props} />,
-                    li: (props) => <li className="leading-7" {...props} />,
-                  }}>
-                  {styledMd}
-                </ReactMarkdown>
-              </div>
+  {content.type === "pdf" ? (
+    <iframe
+      src={content.pdfUrl}
+      className="w-full rounded-lg border"
+      style={{ height: "75vh", borderColor: "#404040" }}
+      title={content.title}
+    />
+  ) : (
+    <ReactMarkdown
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
+      components={{
+        h1: (props) => <h1 className="text-2xl md:text-3xl font-extrabold text-[#82181a] mb-4" {...props} />,
+        h2: (props) => <h2 className="text-xl md:text-2xl font-bold text-[#2D2E8A] mt-6 mb-3" {...props} />,
+        code: (props) => <code className="px-1.5 py-0.5 rounded bg-gray-100" {...props} />,
+        li: (props) => <li className="leading-7" {...props} />,
+      }}>
+      {styledMd}
+    </ReactMarkdown>
+  )}
+</div>
             </div>
           </section>
         </div>

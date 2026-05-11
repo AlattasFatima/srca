@@ -3,12 +3,16 @@ import heartAttack from "../../public/heartAttack.mp4";
 import symptoms from "../../public/symptoms.mp4";
 import standards from "../../public/standards.mp4";
 import questioning from "../../public/questioning.mp4";
+import hajjProtocols from "C:/Users/0teix/Desktop/projects/emd-ep/public/hajjProtocols.mp4";
+import accidentSiteSaftey from "../../public/accidentSiteSafety.mp4";
 
 const MODULES = [
   { id: "v1", title: "توقف قلب أو تنفس المرتبط بإصابة", videoUrl: heartAttack },
   { id: "v2", title: "الأعراض ذات الأولوية", videoUrl: symptoms },
   { id: "v3", title: "الإستجواب الأمثل لطالب الخدمة الإسعافية", videoUrl: questioning },
   { id: "v4", title:"معايير خدمات طالب الخدمة الإسعافية", videoUrl:standards},
+  { id: "v5", title:"أبرز البروتوكولات شيوعًا في موسم الحج", videoUrl:hajjProtocols},
+  { id: "v6", title:"سلامة مكان الحادثة", videoUrl:accidentSiteSaftey},
 ];
 
 /** اسئلة كل فيديو */
