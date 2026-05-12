@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@tailwind utilities;
+
+/* src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;700&display=swap');
+
+/* Apply the font globally */
+body {
+  font-family: 'Markazi Text', serif;
+  padding-top: var(--nav-h, 6rem);
+}

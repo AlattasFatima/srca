@@ -1,0 +1,47 @@
+{
+  "name": "emd-ep",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "homepage": "https://alattasfatima.github.io/srca",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "react-scripts start",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "postbuild": "shx cp dist/index.html dist/404.html",
+    "deploy": "npm run build && gh-pages -d dist -b gh-pages"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "aos": "^2.3.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-icons": "^5.5.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.8.2",
+    "react-router-hash-link": "^2.4.3",
+    "react-simple-typewriter": "^5.0.1",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.33.0",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/react": "^19.1.10",
+    "@types/react-dom": "^19.1.7",
+    "@vitejs/plugin-react": "^5.0.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.33.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "gh-pages": "^6.3.0",
+    "globals": "^16.3.0",
+    "postcss": "^8.5.6",
+    "shx": "^0.4.0",
+    "tailwindcss": "^4.1.13",
+    "vite": "^7.1.2"
+  }
+}
