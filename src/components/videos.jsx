@@ -1,18 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import heartAttack from "../../public/heartAttack.mp4";
-import symptoms from "../../public/symptoms.mp4";
-import standards from "../../public/standards.mp4";
-import questioning from "../../public/questioning.mp4";
-import hajjProtocols from "C:/Users/0teix/Desktop/projects/emd-ep/public/hajjProtocols.mp4";
-import accidentSiteSaftey from "../../public/accidentSiteSafety.mp4";
 
 const MODULES = [
-  { id: "v1", title: "توقف قلب أو تنفس المرتبط بإصابة", videoUrl: heartAttack },
-  { id: "v2", title: "الأعراض ذات الأولوية", videoUrl: symptoms },
-  { id: "v3", title: "الإستجواب الأمثل لطالب الخدمة الإسعافية", videoUrl: questioning },
-  { id: "v4", title:"معايير خدمات طالب الخدمة الإسعافية", videoUrl:standards},
-  { id: "v5", title:"أبرز البروتوكولات شيوعًا في موسم الحج", videoUrl:hajjProtocols},
-  { id: "v6", title:"سلامة مكان الحادثة", videoUrl:accidentSiteSaftey},
+  { id: "v1", title: "توقف قلب أو تنفس المرتبط بإصابة", videoUrl: "/heartAttack.mp4" },
+  { id: "v2", title: "الأعراض ذات الأولوية", videoUrl: "/symptoms.mp4" },
+  { id: "v3", title: "الإستجواب الأمثل لطالب الخدمة الإسعافية", videoUrl: "questioning.mp4" },
+  { id: "v4", title:"معايير خدمات طالب الخدمة الإسعافية", videoUrl:"/standards.mp4"},
+  { id: "v5", title:"أبرز البروتوكولات شيوعًا في موسم الحج", videoUrl: "/HajjProtocols.mp4"},
+  { id: "v6", title:"سلامة مكان الحادثة", videoUrl: "/AccidentSiteSafety.mp4"},
 ];
 
 /** اسئلة كل فيديو */
@@ -231,7 +225,7 @@ export default function Videos() {
 
             <div className="mx-4 sm:mx-6 md:mx-10 lg:mx-16 xl:mx-24 2xl:mx-32 py-5">
               {current.videoUrl && (
-                <video key={current.id} ref={videoRef} width="100%" height="auto" controls>
+                <video key={current.id} ref={videoRef} width="100%" height="auto" controls playsInline>
                   <source src={current.videoUrl} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
