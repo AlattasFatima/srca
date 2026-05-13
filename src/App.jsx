@@ -2,8 +2,6 @@
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
-import ProtectedRoute from "./components/protectedRoute";
-
 import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Articles from "./components/articles";
