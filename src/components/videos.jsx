@@ -297,7 +297,7 @@ export default function Videos() {
         <div className="grid xl:grid-cols-[20rem_1fr] gap-6">
 
           {/* القائمة */}
-          <aside className="relative">
+          <aside className="relative xl:self-start">
 
             {/* Overlay */}
             {menuOpen && (
@@ -315,11 +315,8 @@ export default function Videos() {
             <div
               className={[
                 "bg-white border rounded-2xl shadow-sm",
-
-                "xl:relative xl:translate-x-0 xl:opacity-100 xl:pointer-events-auto",
-
-                "fixed top-[var(--site-header-height,9rem)] right-0 h-[calc(100dvh-var(--site-header-height,9rem))] w-[85%] max-w-sm z-[60] transition-all duration-300 overflow-y-auto",
-
+                "xl:relative xl:h-auto xl:translate-x-0 xl:opacity-100 xl:pointer-events-auto",
+                "fixed top-[var(--site-header-height,9rem)] right-0 max-h-[calc(100dvh-var(--site-header-height,9rem))] w-[85%] max-w-sm z-[60] transition-all duration-300 overflow-y-auto",
                 menuOpen
                   ? "translate-x-0 opacity-100 pointer-events-auto"
                   : "translate-x-full opacity-0 pointer-events-none",
