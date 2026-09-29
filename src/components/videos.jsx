@@ -315,7 +315,7 @@ export default function Videos() {
             <div
               className={[
                 "bg-white border rounded-2xl shadow-sm",
-                "xl:relative xl:h-auto xl:translate-x-0 xl:opacity-100 xl:pointer-events-auto",
+                "xl:relative xl:top-auto xl:h-auto xl:translate-x-0 xl:opacity-100 xl:pointer-events-auto",
                 "fixed top-[var(--site-header-height,9rem)] right-0 max-h-[calc(100dvh-var(--site-header-height,9rem))] w-[85%] max-w-sm z-[60] transition-all duration-300 overflow-y-auto",
                 menuOpen
                   ? "translate-x-0 opacity-100 pointer-events-auto"
