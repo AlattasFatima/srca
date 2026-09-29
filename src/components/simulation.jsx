@@ -68,7 +68,7 @@ export default function Simulations() {
         </div>
 
         <div className="grid xl:grid-cols-[20rem_minmax(0,1fr)] gap-6">
-          <aside className="relative">
+          <aside className="relative xl:self-start">
             {menuOpen && (
               <button
                 type="button"
@@ -79,8 +79,8 @@ export default function Simulations() {
             )}
             <div
               id="simulation-list"
-              className={`bg-white border border-[#404040] rounded-2xl shadow-sm xl:relative xl:translate-x-0 xl:opacity-100 xl:pointer-events-auto fixed top-[var(--site-header-height,9rem)] right-0 h-[calc(100dvh-var(--site-header-height,9rem))] xl:h-auto w-[85%] max-w-sm xl:w-full z-[60] overflow-y-auto transition-all duration-300 ${menuOpen ? "translate-x-0 opacity-100 pointer-events-auto" : "translate-x-full opacity-0 pointer-events-none"}`}
-            >
+              className={`bg-white border border-[#404040] rounded-2xl shadow-sm xl:relative xl:top-auto xl:translate-x-0 xl:opacity-100 xl:pointer-events-auto fixed top-[var(--site-header-height,9rem)] right-0 max-h-[calc(100dvh-var(--site-header-height,9rem))] xl:max-h-none w-[85%] max-w-sm xl:w-full z-[60] overflow-y-auto transition-all duration-300 ${menuOpen ? "translate-x-0 opacity-100 pointer-events-auto" : "translate-x-full opacity-0 pointer-events-none"}`}
+              >
               <div className="p-4">
                 <div className="flex items-center justify-between mb-4 xl:hidden">
                   <h2 className="text-lg font-semibold text-[#404040]">المحاكاة</h2>
