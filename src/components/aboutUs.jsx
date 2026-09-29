@@ -8,7 +8,7 @@ import { FaEnvelope, FaPhone } from "react-icons/fa";
 function AboutUs() {
   return (
     <div id="about" dir="rtl"
-      className="relative isolate min-h-[80vh] w-full pt-10">
+      className="relative isolate min-h-[80vh] w-full overflow-x-clip pt-10">
       <div aria-hidden="true"
         className="pointer-events-none absolute inset-y-0 left-0 w-1/2 md:w-1/3">
         <div className="h-full w-full bg-gradient-to-br from-red-50 to-red-100/60 rounded-3xl blur-2xl opacity-90" />
@@ -98,7 +98,7 @@ function AboutUs() {
       {/* Footer */}
       <footer id="footer" dir="ltr"
         className="relative z-10 w-full bg-red-900 text-white text-lg p-6">
-        <div className="container mx-auto flex flex-row justify-between items-center px-4">
+        <div className="container mx-auto flex flex-col sm:flex-row gap-4 justify-between items-center px-4">
           <p className="mb-0 text-right">
             &copy; {new Date().getFullYear()} جميع الحقوق محفوظة
           </p>

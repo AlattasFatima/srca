@@ -85,12 +85,12 @@ export default function Articles() {
   const [zoom, setZoom] = useState(100);
 
   const [menuOpen, setMenuOpen] = useState(
-    window.innerWidth >= 768
+    window.innerWidth >= 1280
   );
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1280) {
         setMenuOpen(true);
       } else {
         setMenuOpen(false);
@@ -109,6 +109,12 @@ export default function Articles() {
     };
   }, []);
 
+  useEffect(() => {
+    const closeForNavMenu = () => setMenuOpen(false);
+    window.addEventListener("emd:nav-menu-open", closeForNavMenu);
+    return () => window.removeEventListener("emd:nav-menu-open", closeForNavMenu);
+  }, []);
+
   const selectTopic = (topicIndex) => {
     const t = TOPICS[topicIndex];
 
@@ -119,7 +125,7 @@ export default function Articles() {
         : null,
     });
 
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1280) {
       setMenuOpen(false);
     }
   };
@@ -133,7 +139,7 @@ export default function Articles() {
       child: childIndex,
     });
 
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1280) {
       setMenuOpen(false);
     }
   };
@@ -215,9 +221,10 @@ export default function Articles() {
               e.preventDefault();
               e.stopPropagation();
 
+              if (!menuOpen) window.dispatchEvent(new Event("emd:page-menu-open"));
               setMenuOpen((prev) => !prev);
             }}
-            className="md:hidden px-4 py-2 rounded-lg border shadow-sm text-sm relative z-[9999]"
+            className="xl:hidden px-4 py-2 rounded-lg border shadow-sm text-sm"
             style={{
               borderColor: "#404040",
               color: "#404040",
@@ -230,7 +237,7 @@ export default function Articles() {
           </button>
         </div>
 
-        <div className="grid md:grid-cols-[20rem_1fr] gap-6">
+        <div className="grid xl:grid-cols-[20rem_1fr] gap-6">
 
           {/* Sidebar */}
           <aside className="relative">
@@ -238,7 +245,7 @@ export default function Articles() {
             {/* Overlay */}
             {menuOpen && (
               <div
-                className="fixed inset-0 bg-black/30 z-40 md:hidden"
+                className="fixed inset-0 bg-black/30 z-40 xl:hidden"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -253,9 +260,9 @@ export default function Articles() {
               className={[
                 "bg-white border rounded-2xl shadow-sm",
 
-                "md:relative md:translate-x-0 md:opacity-100 md:pointer-events-auto",
+                "xl:relative xl:translate-x-0 xl:opacity-100 xl:pointer-events-auto",
 
-                "fixed top-0 right-0 h-full w-[85%] max-w-sm z-50 transition-all duration-300 overflow-y-auto",
+                "fixed top-[var(--site-header-height,9rem)] right-0 h-[calc(100dvh-var(--site-header-height,9rem))] w-[85%] max-w-sm z-[60] transition-all duration-300 overflow-y-auto",
 
                 menuOpen
                   ? "translate-x-0 opacity-100 pointer-events-auto"
@@ -268,7 +275,7 @@ export default function Articles() {
               <div className="p-4">
 
                 {/* Mobile Header */}
-                <div className="flex items-center justify-between mb-4 md:hidden">
+                <div className="flex items-center justify-between mb-4 xl:hidden">
                   <h2
                     className="text-lg font-semibold"
                     style={{

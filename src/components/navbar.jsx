@@ -10,6 +10,25 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
   const lastY = useRef(0);
+  const navRef = useRef(null);
+
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    const updateHeight = () => {
+      document.documentElement.style.setProperty("--site-header-height", `${nav.offsetHeight}px`);
+    };
+    const observer = new ResizeObserver(updateHeight);
+    observer.observe(nav);
+    updateHeight();
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const closeForPageMenu = () => setOpen(false);
+    window.addEventListener("emd:page-menu-open", closeForPageMenu);
+    return () => window.removeEventListener("emd:page-menu-open", closeForPageMenu);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -31,17 +50,23 @@ function Navbar() {
     }`;
 
   return (
-    <nav dir="rtl"
-      className={`fixed inset-x-0 top-0 z-50 w-full border-b-[6px] border-red-800/80 bg-white/90 backdrop-blur transition-transform duration-300 ${
+    <nav ref={navRef} dir="rtl"
+      className={`fixed inset-x-0 top-0 z-[70] w-full border-b-[6px] border-red-800/80 bg-white/90 backdrop-blur transition-transform duration-300 ${
         show ? "translate-y-0" : "-translate-y-full"
       }`}>
       <div className="max-w-screen-2xl w-full mx-auto px-5 md:px-8">
         {/* mobile header */}
-        <div className="flex items-center justify-between py-4 md:hidden">
+        <div className="flex items-center justify-between py-4 xl:hidden">
           <button
-            onClick={() => { setOpen(v => !v); setShow(true); }}
+            onClick={() => {
+              if (!open) window.dispatchEvent(new Event("emd:nav-menu-open"));
+              setOpen(v => !v);
+              setShow(true);
+            }}
             className="inline-flex items-center justify-center rounded-xl p-2 border text-red-900 hover:bg-gray-100 transition order-2"
-            aria-label="فتح/إغلاق القائمة">
+            aria-label={open ? "إغلاق القائمة" : "فتح القائمة"}
+            aria-expanded={open}
+            aria-controls="mobile-menu">
             <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
               {open ? (
                 <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -58,7 +83,7 @@ function Navbar() {
         </div>
 
         {/* desktop version */}
-        <div className="hidden md:flex items-center justify-between py-5 font-semibold">
+        <div className="hidden xl:flex items-center justify-between gap-2 py-5 font-semibold">
 
           <img src={srcaLogo1} className="h-8 lg:h-10 w-auto" alt="SRCA" />
 
@@ -87,6 +112,9 @@ function Navbar() {
           <NavLink to="/videos" className={linkCls}>
             المحتوى المرئي
           </NavLink>
+          <NavLink to="/simulations" className={linkCls}>
+            المحاكاة
+          </NavLink>
           <NavLink to="/success-cases" className={linkCls}>
             الحالات الناجحة
           </NavLink>
@@ -108,8 +136,8 @@ function Navbar() {
 
         {/* mobile menu */}
         <div id="mobile-menu"
-          className={`md:hidden absolute inset-x-0 top-[var(--nav-h,6rem)] transition-[max-height,opacity] duration-150 ${
-            open ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
+          className={`xl:hidden absolute inset-x-0 top-full overflow-y-auto transition-[max-height,opacity] duration-150 ${
+            open ? "max-h-[calc(100dvh-7rem)] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
           }`}>
           <div className="mx-auto max-w-screen-xl px-5">
             <div className="rounded-2xl bg-white shadow-md overflow-hidden">
@@ -137,6 +165,10 @@ function Navbar() {
 
                 <NavLink to="/videos" onClick={closeMenu} className="block px-4 py-3 text-base text-red-900 hover:bg-gray-100 transition">
                   المحتوى المرئي
+                </NavLink>
+
+                <NavLink to="/simulations" onClick={closeMenu} className="block px-4 py-3 text-base text-red-900 hover:bg-gray-100 transition">
+                  المحاكاة
                 </NavLink>
 
                 <NavLink to="/success-cases" onClick={closeMenu} className="block px-4 py-3 text-base text-red-900 hover:bg-gray-100 transition">

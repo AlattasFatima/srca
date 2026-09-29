@@ -103,7 +103,7 @@ export default function Videos() {
   const [active, setActive] = useState(0);
 
   const [menuOpen, setMenuOpen] = useState(
-    window.innerWidth >= 768
+    window.innerWidth >= 1280
   );
 
   const [quizOpen, setQuizOpen] = useState(false);
@@ -145,7 +145,7 @@ export default function Videos() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768) {
+      if (window.innerWidth >= 1280) {
         setMenuOpen(true);
       } else {
         setMenuOpen(false);
@@ -162,6 +162,12 @@ export default function Videos() {
         handleResize
       );
     };
+  }, []);
+
+  useEffect(() => {
+    const closeForNavMenu = () => setMenuOpen(false);
+    window.addEventListener("emd:nav-menu-open", closeForNavMenu);
+    return () => window.removeEventListener("emd:nav-menu-open", closeForNavMenu);
   }, []);
 
   useEffect(() => {
@@ -187,6 +193,7 @@ export default function Videos() {
       setSelectedOption(null);
 
       setQuizOpen(true);
+      setMenuOpen(false);
 
       setCompleted((prev) => ({
         ...prev,
@@ -208,7 +215,7 @@ export default function Videos() {
 
     setSelectedOption(null);
 
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1280) {
       setMenuOpen(false);
     }
   };
@@ -271,9 +278,10 @@ export default function Videos() {
               e.preventDefault();
               e.stopPropagation();
 
+              if (!menuOpen) window.dispatchEvent(new Event("emd:page-menu-open"));
               setMenuOpen((prev) => !prev);
             }}
-            className="md:hidden px-4 py-2 rounded-lg border shadow-sm text-sm relative z-[9999]"
+            className="xl:hidden px-4 py-2 rounded-lg border shadow-sm text-sm"
             style={{
               borderColor: "#404040",
               color: "#404040",
@@ -286,7 +294,7 @@ export default function Videos() {
           </button>
         </div>
 
-        <div className="grid md:grid-cols-[20rem_1fr] gap-6">
+        <div className="grid xl:grid-cols-[20rem_1fr] gap-6">
 
           {/* القائمة */}
           <aside className="relative">
@@ -294,7 +302,7 @@ export default function Videos() {
             {/* Overlay */}
             {menuOpen && (
               <div
-                className="fixed inset-0 bg-black/30 z-40 md:hidden"
+                className="fixed inset-0 bg-black/30 z-40 xl:hidden"
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -308,9 +316,9 @@ export default function Videos() {
               className={[
                 "bg-white border rounded-2xl shadow-sm",
 
-                "md:relative md:translate-x-0 md:opacity-100 md:pointer-events-auto",
+                "xl:relative xl:translate-x-0 xl:opacity-100 xl:pointer-events-auto",
 
-                "fixed top-0 right-0 h-full w-[85%] max-w-sm z-50 transition-all duration-300",
+                "fixed top-[var(--site-header-height,9rem)] right-0 h-[calc(100dvh-var(--site-header-height,9rem))] w-[85%] max-w-sm z-[60] transition-all duration-300 overflow-y-auto",
 
                 menuOpen
                   ? "translate-x-0 opacity-100 pointer-events-auto"
@@ -321,7 +329,7 @@ export default function Videos() {
               }}
             >
               <div className="p-4">
-                <div className="flex items-center justify-between mb-4 md:hidden">
+                <div className="flex items-center justify-between mb-4 xl:hidden">
                   <h2
                     className="text-lg font-semibold"
                     style={{

@@ -9,3 +9,8 @@ body {
   font-family: 'Markazi Text', serif;
   padding-top: var(--nav-h, 6rem);
 }
+
+html, body {
+  width: 100%;
+  overflow-x: clip;
+}

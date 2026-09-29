@@ -4,6 +4,7 @@ import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Articles from "./components/articles";
 import Videos from "./components/videos";
+import Simulations from "./components/simulation";
 import AboutUs from "./components/aboutUs";
 import Login from "./components/login";
 import Footer from "./components/footer";
@@ -12,24 +13,49 @@ import Stories from "./components/stories";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+
 function SlidingSections() {
   const location = useLocation();
-  useEffect(() => { AOS.init(); }, []);
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   useEffect(() => {
     const id = (location.hash || "").replace("#", "") || null;
     if (!id) return;
+
     const el = document.getElementById(id);
     if (!el) return;
-    const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--nav-h")) || 96;
+
+    const navH =
+      parseInt(
+        getComputedStyle(document.documentElement).getPropertyValue("--nav-h")
+      ) || 96;
+
     const y = window.scrollY + el.getBoundingClientRect().top - navH + 1;
-    window.scrollTo({ top: Math.max(y, 0), behavior: "smooth" });
+
+    window.scrollTo({
+      top: Math.max(y, 0),
+      behavior: "smooth",
+    });
   }, [location]);
+
   return (
     <div className="md:snap-y md:snap-mandatory">
-      <section id="home" className="md:snap-start" style={{ scrollMarginTop: "var(--nav-h,6rem)" }}>
+      <section
+        id="home"
+        className="md:snap-start"
+        style={{ scrollMarginTop: "var(--nav-h,6rem)" }}
+      >
         <Home />
       </section>
-      <section id="about" className="md:snap-start" style={{ scrollMarginTop: "var(--nav-h,6rem)" }}>
+
+      <section
+        id="about"
+        className="md:snap-start"
+        style={{ scrollMarginTop: "var(--nav-h,6rem)" }}
+      >
         <AboutUs />
       </section>
     </div>
@@ -49,14 +75,34 @@ function App() {
   return (
     <HashRouter>
       <Navbar />
+
       <Routes>
-        <Route path="/login" element={<StickyPage><Login /></StickyPage>} />
+        <Route
+          path="/login"
+          element={<StickyPage><Login /></StickyPage>}
+        />
         <Route path="/" element={<SlidingSections />} />
         <Route path="/aboutUs" element={<SlidingSections />} />
-        <Route path="/articles" element={<StickyPage><Articles /></StickyPage>} />
-        <Route path="/videos" element={<StickyPage><Videos /></StickyPage>} />
-        <Route path="/success-cases" element={<StickyPage><SuccessCases /></StickyPage>} />
-        <Route path="/inspiring-stories" element={<StickyPage><Stories /></StickyPage>} />
+        <Route
+          path="/articles"
+          element={<StickyPage><Articles /></StickyPage>}
+        />
+        <Route
+          path="/videos"
+          element={<StickyPage><Videos /></StickyPage>}
+        />
+        <Route
+          path="/simulations"
+          element={<StickyPage><Simulations /></StickyPage>}
+        />
+        <Route
+          path="/success-cases"
+          element={<StickyPage><SuccessCases /></StickyPage>}
+        />
+        <Route
+          path="/inspiring-stories"
+          element={<StickyPage><Stories /></StickyPage>}
+        />
       </Routes>
     </HashRouter>
   );
