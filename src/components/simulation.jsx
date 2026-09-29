@@ -10,7 +10,7 @@ const SIMULATIONS = [
   {
     id: "simulation-2",
     title: "التنفس الغير متأكد منه",
-    videoUrl: "/simulations/simulation2.MP4",
+    videoUrl: "/simulations/UncertainBreathing.MP4",
     formUrl: "https://forms.gle/RMJK5xnN5BsHfa1r7",
   },
 ];
