@@ -1,6 +1,5 @@
 import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import ProtectedRoute from "./components/protectedRoute";
 import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Articles from "./components/articles";
@@ -52,14 +51,12 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/login" element={<StickyPage><Login /></StickyPage>} />
-        <Route element={<ProtectedRoute />}>
-          <Route path="/" element={<SlidingSections />} />
-          <Route path="/aboutUs" element={<SlidingSections />} />
-          <Route path="/articles" element={<StickyPage><Articles /></StickyPage>} />
-          <Route path="/videos" element={<StickyPage><Videos /></StickyPage>} />
-          <Route path="/success-cases" element={<StickyPage><SuccessCases /></StickyPage>} />
-          <Route path="/inspiring-stories" element={<StickyPage><Stories /></StickyPage>} />
-        </Route>
+        <Route path="/" element={<SlidingSections />} />
+        <Route path="/aboutUs" element={<SlidingSections />} />
+        <Route path="/articles" element={<StickyPage><Articles /></StickyPage>} />
+        <Route path="/videos" element={<StickyPage><Videos /></StickyPage>} />
+        <Route path="/success-cases" element={<StickyPage><SuccessCases /></StickyPage>} />
+        <Route path="/inspiring-stories" element={<StickyPage><Stories /></StickyPage>} />
       </Routes>
     </HashRouter>
   );
